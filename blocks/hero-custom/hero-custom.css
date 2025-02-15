@@ -1,9 +1,10 @@
 .btn-primary {
     background-color: #a80116;
+    border-color: #a80116;
 }
 
-a:not(.dropin-design).btn-primary,
-a:not(.dropin-design).btn-secondary {
+.btn-primary:not(.dropin-design),
+.btn-secondary:not(.dropin-design) {
     -ms-flex-align: center;
     -ms-flex-direction: row;
     -ms-flex-pack: center;
@@ -13,7 +14,6 @@ a:not(.dropin-design).btn-secondary {
     -webkit-box-pack: center;
     align-items: center;
     border-radius: none;
-    color: #fff;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -27,18 +27,29 @@ a:not(.dropin-design).btn-secondary {
     width: 50%;
 }
 
-a:not(.dropin-design).btn-primary:hover {
-    border: 2px solid #a80116;
-    background: #ca3e3e;
+.btn-primary:not(.dropin-design),
+.btn-secondary:not(.dropin-design),
+.btn-primary:not(.dropin-design):hover,
+.btn-secondary:not(.dropin-design):hover {
+    border-style: solid;
+    border-width: 2px;
+    color: #fff;
+    text-decoration: none;
 }
 
-a:not(.dropin-design).btn-secondary:hover {
-    border: 2px solid #3a3a3a;
-    background: #56575c;
+.btn-primary:not(.dropin-design):hover {
+    border-color: #a80116;
+    background: #ca3e3e;
 }
 
 .btn-secondary {
     background-color: #3a3a3a;
+    border-color: #3a3a3a;
+}
+
+.btn-secondary:not(.dropin-design):hover {
+    border-color: #3a3a3a;
+    background: #56575c;
 }
 
 .hero-custom .button-container a.button {
@@ -52,18 +63,17 @@ a:not(.dropin-design).btn-secondary:hover {
 }
 
 .hero-custom > div {
-    background-color: #f5f5f5;
     display: grid;
-}
-
-.hero-text-content > * {
-    margin-left: 3rem;
-    margin-right: 3rem;
 }
 
 .hero-custom h1 {
     font-family: "roboto-condensed", sans-serif;
     font-weight: 900;
+}
+
+.hero-text-content > * {
+    margin-left: 3rem;
+    margin-right: 3rem;
 }
 
 .sale-subtitle {
