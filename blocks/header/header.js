@@ -263,6 +263,12 @@ export default async function decorate(block) {
     }
   });
 
+  // const logo = document.createElement('div');
+  // logo.className = 'logo';
+  // logo.height = '34';
+  // logo.width = '155';
+  // nav.prepend(logo);
+
   // hamburger for mobile
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');
