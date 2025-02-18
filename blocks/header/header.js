@@ -141,10 +141,10 @@ export default async function decorate(block) {
 
   const navBrand = nav.querySelector('.nav-brand');
   const brandLink = navBrand.querySelector('.button');
-  if (brandLink) {
-    brandLink.className = '';
-    brandLink.closest('.button-container').className = '';
-  }
+  // if (brandLink) {
+  //   brandLink.className = '';
+  //   brandLink.closest('.button-container').className = '';
+  // }
 
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
@@ -276,11 +276,11 @@ export default async function decorate(block) {
     }
   });
 
-  // const logo = document.createElement('div');
-  // logo.className = 'logo';
-  // logo.height = '34';
-  // logo.width = '155';
-  // nav.prepend(logo);
+  const logo = document.createElement('div');
+  logo.className = 'logo';
+  logo.height = '34';
+  logo.width = '155';
+  nav.prepend(logo);
 
   // hamburger for mobile
   const hamburger = document.createElement('div');
