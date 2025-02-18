@@ -519,7 +519,7 @@ main[hidden] {
     -webkit-box-orient: horizontal;
     -webkit-box-pack: center;
     align-items: center;
-    border-radius: none;
+    border-radius: 0;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
