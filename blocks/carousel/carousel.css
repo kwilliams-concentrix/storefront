@@ -19,7 +19,7 @@
 }
 .carousel-item-link:not(.dropin-design) {
     -webkit-text-decoration-line: underline;
-    color: #a80116;
+    color: var(--color-primary-red);
     font-size: 1pc;
     font-weight: 500;
     letter-spacing: 0;

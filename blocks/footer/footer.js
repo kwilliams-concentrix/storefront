@@ -26,8 +26,9 @@ export default async function decorate(block) {
   footerCopyright.classList.add('copyright');
   footerCopyright.append(footer.children[1].querySelector('p').textContent);
 
-  const footerMarkup = document.createElement('div');
-  footerMarkup.classList.add('site-links');
+  const footerContent = document.createElement('div');
+  footerContent.classList.add('footer-content');
+
   const contactCTA = `
   <div class="contact-cta">
     <div class="email-subscription-label">Keep Updated</div>
@@ -40,7 +41,10 @@ export default async function decorate(block) {
     <a href="#" class="footer-help-chat">Need help? Let's Chat</a>
     </div>
   `;
-  footerMarkup.innerHTML = contactCTA;
+  footerContent.innerHTML = contactCTA;
+
+  const siteLinksContainer = document.createElement('div');
+  siteLinksContainer.classList.add('site-links');
 
   [...footerLinks.children].forEach((category) => {
     // console.log(category);
@@ -69,11 +73,12 @@ export default async function decorate(block) {
     })
 
     categoryDiv.appendChild(categoryLinks);
-    footerMarkup.appendChild(categoryDiv);
+    siteLinksContainer.appendChild(categoryDiv);
 
   })
 
-  block.prepend(footerMarkup);
+  footerContent.appendChild(siteLinksContainer);
+  block.prepend(footerContent);
   block.appendChild(footerCopyright);
 
 }

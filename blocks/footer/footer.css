@@ -3,15 +3,12 @@
 }
 
 .contact-cta a:not(.dropin-design a) {
-    color: #a80116;
+    color: var(--color-primary-red);
     text-decoration: underline;
 }
 
 .contact-cta button {
-    border: 2px solid #a80116;
-    color: rgb(var(--stroke));
-    font-size: var(--venia-global-fontSize-100);
-    font-weight: var(--venia-global-fontWeight-bold);
+    border: 2px solid var(--color-primary-red);
     height: auto;
     line-height: 1.25rem;
     min-width: 10rem;
@@ -24,7 +21,6 @@
 .contact-cta input {
     background: #faf9f8;
     border: 1px solid #ccc;
-    color: rgb(var(--venia-global-color-text));
     margin: 0;
     max-width: 100%;
     padding: calc(0.375rem - 1px) calc(0.625rem - 1px);
@@ -48,9 +44,7 @@
 }
 
 footer {
-    background-color: var(--color-neutral-100);
-    font: var(--type-body-2-default-font);
-    letter-spacing: var(--type-body-2-default-letter-spacing);
+    --content-spacing: 4em;
     line-height: 2em;
 }
 
@@ -67,7 +61,7 @@ footer .footer p {
 .footer-help-chat:before {
     font: var(--fa-font-solid);
     content: " \f4ad";
-    color: #a80116;
+    color: var(--color-primary-red);
     font-style: normal;
     font-weight: 900;
     font-size: 1pc;
@@ -77,24 +71,35 @@ footer .footer p {
     display: inline-block;
 }
 
-.site-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    justify-content: flex-end;
-}
-
 .footer-category {
     font-size: 1.2em;
-    width: 240px;
 }
 
 .footer-category-title {
     font-weight: 700;
 }
 
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--content-spacing);
+}
+
+.site-links {
+    display: flex;
+    gap: var(--content-spacing);
+    justify-content: flex-end;
+}
+
 @media (width >= 900px) {
     footer .footer > div {
         padding: 40px 32px 24px;
+    }
+}
+
+@media (width >= 1024px) {
+    .footer-content {
+        flex-wrap: nowrap;
+        justify-content: flex-end;
     }
 }
