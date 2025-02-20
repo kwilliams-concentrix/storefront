@@ -140,7 +140,7 @@ export default async function decorate(block) {
   });
 
   const navBrand = nav.querySelector('.nav-brand');
-  const brandLink = navBrand.querySelector('.button');
+  // const brandLink = navBrand.querySelector('.button');
   // if (brandLink) {
   //   brandLink.className = '';
   //   brandLink.closest('.button-container').className = '';
@@ -276,9 +276,10 @@ export default async function decorate(block) {
     }
   });
 
-  const logo = document.createElement('div');
+  const logo = document.createElement('a');
   logo.className = 'logo';
   logo.height = '34';
+  logo.href = "/";
   logo.width = '155';
   nav.prepend(logo);
 
