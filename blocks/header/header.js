@@ -279,8 +279,7 @@ export default async function decorate(block) {
   const logo = document.createElement('a');
   logo.className = 'logo';
   logo.height = '34';
-  logo.href = "/";
-  logo.href = "/";
+  logo.href = '/';
   logo.width = '155';
   nav.prepend(logo);
 
