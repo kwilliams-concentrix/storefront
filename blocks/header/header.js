@@ -277,7 +277,6 @@ export default async function decorate(block) {
   });
 
   const logo = document.createElement('a');
-  const logo = document.createElement('a');
   logo.className = 'logo';
   logo.height = '34';
   logo.href = "/";
