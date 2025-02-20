@@ -33,6 +33,8 @@
     --color-positive-200: #eff5ef;
     --color-positive-500: #7fb078;
     --color-positive-800: #53824c;
+    --color-primary-red: #a80116;
+    --color-secondary-gray: #3a3a3a;
     --color-informational-200: #eeeffb;
     --color-informational-500: #6978d9;
     --color-informational-800: #5d6dd6;
@@ -49,6 +51,7 @@
     --color-action-button-hover: var(--color-neutral-300);
     --color-opacity-16: rgb(255 255 255 / 16%);
     --color-opacity-24: rgb(255 255 255 / 24%);
+    --fa-font-solid: normal 900 1em / 1 "Font Awesome 6 Free";
     --grid-1-columns: 4;
     --grid-1-margins: 0;
     --grid-1-gutters: 16px;
@@ -505,8 +508,8 @@ main[hidden] {
 
 /* CNX Bikes styles */
 .btn-primary {
-    background-color: #a80116;
-    border-color: #a80116;
+    background-color: var(--color-primary-red);
+    border-color: var(--color-primary-red);
 }
 
 .btn-primary:not(.dropin-design),
@@ -544,16 +547,16 @@ main[hidden] {
 }
 
 .btn-primary:not(.dropin-design):hover {
-    border-color: #a80116;
+    border-color: var(--color-primary-red);
     background: #ca3e3e;
 }
 
 .btn-secondary {
-    background-color: #3a3a3a;
-    border-color: #3a3a3a;
+    background-color: var(--color-secondary-gray);
+    border-color: var(--color-secondary-gray);
 }
 
 .btn-secondary:not(.dropin-design):hover {
-    border-color: #3a3a3a;
+    border-color: var(--color-secondary-gray);
     background: #56575c;
 }
