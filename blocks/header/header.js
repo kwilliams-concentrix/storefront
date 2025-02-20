@@ -139,7 +139,7 @@ export default async function decorate(block) {
     if (section) section.classList.add(`nav-${c}`);
   });
 
-  const navBrand = nav.querySelector('.nav-brand');
+  // const navBrand = nav.querySelector('.nav-brand');
   // const brandLink = navBrand.querySelector('.button');
   // if (brandLink) {
   //   brandLink.className = '';
@@ -277,8 +277,10 @@ export default async function decorate(block) {
   });
 
   const logo = document.createElement('a');
+  const logo = document.createElement('a');
   logo.className = 'logo';
   logo.height = '34';
+  logo.href = "/";
   logo.href = "/";
   logo.width = '155';
   nav.prepend(logo);
