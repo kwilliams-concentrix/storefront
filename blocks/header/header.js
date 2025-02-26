@@ -127,6 +127,11 @@ export default async function decorate(block) {
   const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
   const fragment = await loadFragment(navPath);
 
+  // import top bar data for use above nav
+  const topBarData = getMetadata('topbar');
+  const topBarPath = topBarData ? new URL(topBarData, window.location).pathname : '/topbar';
+  const topBarFragment = await loadFragment(topBarPath);
+
   // decorate nav DOM
   block.textContent = '';
   const nav = document.createElement('nav');
@@ -197,7 +202,7 @@ export default async function decorate(block) {
     cartButton.style.display = 'none';
   }
 
-  // load nav as fragment
+  // load mini cart as fragment
   const miniCartMeta = getMetadata('mini-cart');
   const miniCartPath = miniCartMeta ? new URL(miniCartMeta, window.location).pathname : '/mini-cart';
   loadFragment(miniCartPath).then((miniCartFragment) => {
@@ -298,6 +303,7 @@ export default async function decorate(block) {
 
   const navWrapper = document.createElement('div');
   navWrapper.className = 'nav-wrapper';
+  navWrapper.append(topBarFragment);
   navWrapper.append(nav);
   block.append(navWrapper);
 
