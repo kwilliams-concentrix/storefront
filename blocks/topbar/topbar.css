@@ -1,0 +1,55 @@
+main > .topbar-container {
+    margin-bottom: 0;
+}
+
+.topbar {
+    background-color: #323130;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 0 22px;
+}
+
+.topbar .contact {
+    align-items: inherit;
+    display: none;
+    gap: inherit;
+    justify-content: space-between;
+    z-index: 2;
+}
+
+a:not(.dropin-design a),
+a:not(.dropin-design a):hover {
+    color: inherit;
+    cursor: pointer;
+    font-size: inherit;
+}
+
+.topbar .country-flag {
+    height: auto;
+    width: 24px;
+    margin-top: 10%;
+}
+
+.topbar .shop-msg {
+    position: absolute;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    z-index: 1;
+}
+
+.topbar .top-main {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 40px;
+    gap: 1em;
+    justify-content: space-between;
+}
+
+@media screen and (min-width: 1000px) {
+    .topbar .contact {
+        display: flex;
+    }
+}

@@ -9,6 +9,10 @@ header .nav-wrapper {
     border-bottom: 1px solid var(--color-neutral-300);
 }
 
+header.header-wrapper {
+    height: 13rem;
+}
+
 header nav {
     box-sizing: border-box;
     display: grid;
@@ -188,6 +192,7 @@ header nav .nav-sections ul > li > ul > li {
     background-repeat: no-repeat;
     display: block;
     height: 34px;
+    min-width: 155px;
     width: 155px;
 }
 
@@ -264,7 +269,7 @@ header nav .nav-sections ul > li > ul > li {
         justify-content: space-evenly;
         left: 0;
         position: absolute;
-        top: 4em;
+        top: 6em;
         width: 100vw;
     }
 
@@ -537,4 +542,9 @@ header .nav-search-input .search_autocomplete .popover-container {
 .grecaptcha-badge {
     margin-top: 20px;
     z-index: 3;
+}
+
+section > div {
+    margin: auto;
+    max-width: 1200px;
 }
