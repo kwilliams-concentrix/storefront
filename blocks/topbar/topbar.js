@@ -1,11 +1,11 @@
 export default async function decorate(block) {
-    [...block.children].forEach((row) => {
-        console.log(row);
-    })
+  [...block.children].forEach((row) => {
+    console.log(row);
+  });
 
-    const topBarImage = block.querySelector('img');
+  const topBarImage = block.querySelector('img');
 
-    const topBarMarkup = `
+  const topBarMarkup = `
     <div class="topbar">
         <div class="top-main">
             <div class="contact">
@@ -27,5 +27,5 @@ export default async function decorate(block) {
     </div>
     `;
 
-    block.innerHTML = topBarMarkup;
+  block.innerHTML = topBarMarkup;
 }
