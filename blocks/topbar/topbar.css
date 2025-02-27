@@ -17,8 +17,8 @@ main > .topbar-container {
     z-index: 2;
 }
 
-a:not(.dropin-design a),
-a:not(.dropin-design a):hover {
+.topbar a:not(.dropin-design a),
+.topbar a:not(.dropin-design a):hover {
     color: inherit;
     cursor: pointer;
     font-size: inherit;

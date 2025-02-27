@@ -1,8 +1,4 @@
 export default async function decorate(block) {
-  [...block.children].forEach((row) => {
-    console.log(row);
-  });
-
   const topBarImage = block.querySelector('img');
   const links = block.querySelectorAll('a');
   const paragraphs = block.querySelectorAll('p');

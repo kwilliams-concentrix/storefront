@@ -560,3 +560,19 @@ main[hidden] {
     border-color: var(--color-secondary-gray);
     background: #56575c;
 }
+
+div:not(.product-list-page-container) h1:not(.hero-custom-title) {
+    color: white;
+    font-weight: 900;
+    left: 0;
+    letter-spacing: 0;
+    position: absolute;
+    text-align: center;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    top: 3.25em;
+    width: 100vw;
+}
+
+main > .section p {
+    margin-top: 0;
+}

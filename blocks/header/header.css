@@ -10,7 +10,7 @@ header .nav-wrapper {
 }
 
 header.header-wrapper {
-    height: 13rem;
+    height: 10.5rem;
 }
 
 header nav {
@@ -273,8 +273,9 @@ header nav .nav-sections ul > li > ul > li {
         width: 100vw;
     }
 
+    /*
     header nav .nav-sections .default-content-wrapper > ul > li > ul::before {
-        /* content: '';
+    content: '';
     position: absolute;
     top: -8px;
     left: 16px;
@@ -282,8 +283,8 @@ header nav .nav-sections ul > li > ul > li {
     height: 0;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    border-bottom: 8px solid var(--color-neutral-500); */
-    }
+    border-bottom: 8px solid var(--color-neutral-500);
+    }*/
 
     header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
         padding: 8px 0;
