@@ -13,8 +13,9 @@
 }
 
 .hero-custom h1 {
-    font-family: "roboto-condensed", sans-serif;
+    font-family: "roboto", sans-serif;
     font-weight: 900;
+    letter-spacing: 0;
 }
 
 .hero-text-content > * {
