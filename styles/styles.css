@@ -416,7 +416,7 @@ main > .section {
 }
 
 main > .section > div {
-    max-width: 1200px;
+    max-width: 1450px;
     margin: auto;
     padding: 0 var(--spacing-medium);
 }

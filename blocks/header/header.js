@@ -182,20 +182,101 @@ export default async function decorate(block) {
 
   const navTools = nav.querySelector('.nav-tools');
 
+  /** Search */
+
+  // TODO
+  const search = document.createRange().createContextualFragment(`
+  <div class="search-wrapper nav-tools-wrapper">
+  <button type="button" class="nav-search-button">Search</button>
+  <div class="nav-search-input nav-search-panel nav-tools-panel">
+    <form action="/search" method="GET">
+      <input id="search" type="search" name="q" placeholder="Search" />
+      <div id="search_autocomplete" class="search-autocomplete"></div>
+    </form>
+  </div>
+  </div>
+  `);
+
+  navTools.append(search);
+
+  const searchPanel = navTools.querySelector('.nav-search-panel');
+  const searchButton = navTools.querySelector('.nav-search-button');
+  const searchInput = searchPanel.querySelector('input');
+
+  async function toggleSearch(state) {
+    const show = state ?? !searchPanel.classList.contains('nav-tools-panel--show');
+
+    searchPanel.classList.toggle('nav-tools-panel--show', show);
+
+    if (show) {
+      await import('./searchbar.js');
+      searchInput.focus();
+    }
+  }
+
+  navTools.querySelector('.nav-search-button').addEventListener('click', () => toggleSearch());
+
+  // Close panels when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!minicartPanel.contains(e.target) && !cartButton.contains(e.target)) {
+      toggleMiniCart(false);
+    }
+
+    if (!searchPanel.contains(e.target) && !searchButton.contains(e.target)) {
+      toggleSearch(false);
+    }
+  });
+
+
+
+  const logo = document.createElement('a');
+  logo.className = 'logo';
+  logo.height = '34';
+  logo.href = '/';
+  logo.width = '155';
+  nav.prepend(logo);
+
+  // hamburger for mobile
+  const hamburger = document.createElement('div');
+  hamburger.classList.add('nav-hamburger');
+  hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
+      <span class="nav-hamburger-icon"></span>
+    </button>`;
+  hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
+  nav.prepend(hamburger);
+  nav.setAttribute('aria-expanded', 'false');
+  // prevent mobile nav behavior on window resize
+  toggleMenu(nav, navSections, isDesktop.matches);
+  isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
+
+  const navWrapper = document.createElement('div');
+  navWrapper.className = 'nav-wrapper';
+  navWrapper.append(topBarFragment);
+  navWrapper.append(nav);
+  block.append(navWrapper);
+
+  // TODO: Following statements added for demo purpose (Auth Drop-In)
+  renderAuthCombine(
+    navSections,
+    () => !isDesktop.matches && toggleMenu(nav, navSections, false),
+  );
+  renderAuthDropdown(navTools);
+
+
+
   /** Mini Cart */
   const excludeMiniCartFromPaths = ['/checkout'];
 
   const minicart = document.createRange().createContextualFragment(`
-     <div class="minicart-wrapper nav-tools-wrapper">
-       <button type="button" class="nav-cart-button" aria-label="Cart"></button>
-       <div class="minicart-panel nav-tools-panel"></div>
-     </div>
-   `);
+       <div class="minicart-wrapper nav-tools-wrapper">
+         <button type="button" class="nav-cart-button" aria-label="Cart"></button>
+         <div class="minicart-panel nav-tools-panel"></div>
+       </div>
+     `);
 
   navTools.append(minicart);
 
   const minicartPanel = navTools.querySelector('.minicart-panel');
-
   const cartButton = navTools.querySelector('.nav-cart-button');
 
   if (excludeMiniCartFromPaths.includes(window.location.pathname)) {
@@ -233,84 +314,4 @@ export default async function decorate(block) {
     },
     { eager: true },
   );
-
-  /** Search */
-
-  // TODO
-  const search = document.createRange().createContextualFragment(`
-  <div class="search-wrapper nav-tools-wrapper">
-    <button type="button" class="nav-search-button">Search</button>
-    <div class="nav-search-input nav-search-panel nav-tools-panel">
-      <form action="/search" method="GET">
-        <input id="search" type="search" name="q" placeholder="Search" />
-        <div id="search_autocomplete" class="search-autocomplete"></div>
-      </form>
-    </div>
-  </div>
-  `);
-
-  navTools.append(search);
-
-  const searchPanel = navTools.querySelector('.nav-search-panel');
-
-  const searchButton = navTools.querySelector('.nav-search-button');
-
-  const searchInput = searchPanel.querySelector('input');
-
-  async function toggleSearch(state) {
-    const show = state ?? !searchPanel.classList.contains('nav-tools-panel--show');
-
-    searchPanel.classList.toggle('nav-tools-panel--show', show);
-
-    if (show) {
-      await import('./searchbar.js');
-      searchInput.focus();
-    }
-  }
-
-  navTools.querySelector('.nav-search-button').addEventListener('click', () => toggleSearch());
-
-  // Close panels when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!minicartPanel.contains(e.target) && !cartButton.contains(e.target)) {
-      toggleMiniCart(false);
-    }
-
-    if (!searchPanel.contains(e.target) && !searchButton.contains(e.target)) {
-      toggleSearch(false);
-    }
-  });
-
-  const logo = document.createElement('a');
-  logo.className = 'logo';
-  logo.height = '34';
-  logo.href = '/';
-  logo.width = '155';
-  nav.prepend(logo);
-
-  // hamburger for mobile
-  const hamburger = document.createElement('div');
-  hamburger.classList.add('nav-hamburger');
-  hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
-      <span class="nav-hamburger-icon"></span>
-    </button>`;
-  hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
-  nav.prepend(hamburger);
-  nav.setAttribute('aria-expanded', 'false');
-  // prevent mobile nav behavior on window resize
-  toggleMenu(nav, navSections, isDesktop.matches);
-  isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
-
-  const navWrapper = document.createElement('div');
-  navWrapper.className = 'nav-wrapper';
-  navWrapper.append(topBarFragment);
-  navWrapper.append(nav);
-  block.append(navWrapper);
-
-  // TODO: Following statements added for demo purpose (Auth Drop-In)
-  renderAuthCombine(
-    navSections,
-    () => !isDesktop.matches && toggleMenu(nav, navSections, false),
-  );
-  renderAuthDropdown(navTools);
 }

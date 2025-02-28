@@ -3,10 +3,15 @@ main > .topbar-container {
 }
 
 .topbar {
-    background-color: #323130;
     color: #fff;
     font-size: 1.2rem;
-    padding: 0 22px;
+}
+
+.topbar a:not(.dropin-design a),
+.topbar a:not(.dropin-design a):hover {
+    color: inherit;
+    cursor: pointer;
+    font-size: inherit;
 }
 
 .topbar .contact {
@@ -17,15 +22,13 @@ main > .topbar-container {
     z-index: 2;
 }
 
-.topbar a:not(.dropin-design a),
-.topbar a:not(.dropin-design a):hover {
-    color: inherit;
-    cursor: pointer;
-    font-size: inherit;
+.topbar-container {
+    background-color: #323130;
 }
 
 .topbar .country-flag {
     height: auto;
+    margin-right: 1em;
     vertical-align: text-bottom;
     width: 24px;
 }
@@ -44,11 +47,20 @@ main > .topbar-container {
     flex-direction: row;
     flex-wrap: nowrap;
     height: 40px;
-    gap: 1em;
+    gap: 3em;
     justify-content: space-between;
 }
 
-@media screen and (min-width: 1000px) {
+.topbar-wrapper {
+    max-width: none;
+    padding: 0;
+}
+
+@media screen and (min-width: 1200px) {
+    main > .section > .topbar-wrapper {
+        padding: 0;
+    }
+
     .topbar .contact {
         display: flex;
     }
